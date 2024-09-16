@@ -1,0 +1,52 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a id="last" class="nav-link">Welcome Administrator! </a></li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="add()"> <img class="icon-container" src="assets/icons/addA.gif">Add a Nurse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="showDetails()"> <img class="icon-container" src="assets/icons/showNDA.gif">Show all nurses</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="icon-container" src="assets/icons/calendA.gif">Nurses's calendar
+            </a>
+            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" (click)="place()">Place the nurse monthly</a></li>
+              <li><a class="dropdown-item" id="scdChild" (click)="fMYD()">View the nurses by department and date</a></li>
+              <li><a class="dropdown-item" (click)="fMY()">View nurses by date</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="mess()"> <img class="icon-container" src="assets/icons/showMA.gif">Nurses's message</a>
+          </li>
+        </ul>
+     
+      </div>
+    </div>
+  </nav>
+
+<div *ngIf="disabledAddNurse">
+    <app-add-nurse></app-add-nurse>
+</div>
+<div *ngIf="disabledshowDetails">
+    <app-show-nurses-details></app-show-nurses-details>
+</div>
+<div *ngIf="disabledmess">
+    <app-messages-nurse-for-admin></app-messages-nurse-for-admin>
+</div>
+<div *ngIf="disabledPlacementNurse">
+    <app-place-nurse></app-place-nurse>
+</div>
+<div *ngIf="disabledFilterMYD">
+    <app-filter-by-dep-mon-year></app-filter-by-dep-mon-year>
+</div>
+<div *ngIf="disabledFilterMY">
+    <app-filter-by-mon-year></app-filter-by-mon-year>
+</div>
+<router-outlet></router-outlet>
+

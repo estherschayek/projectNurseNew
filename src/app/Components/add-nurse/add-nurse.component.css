@@ -1,0 +1,13 @@
+
+
+.error{
+    color:red;
+    text-shadow:2px 2px 2px #1d6a04
+}
+.icon-container{
+    margin:50px;
+    width:400px
+}
+.card{
+    border-style: none;
+}

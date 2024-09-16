@@ -1,0 +1,20 @@
+<div class="wrapit" clas="col justify-content-center">
+    <img *ngIf="showAllNByDAllDate.length==0" src="assets/icons/arrow.gif">
+    <button appButtonsStyle (click)="placeNursePerMonth()">Place Nurses</button>
+</div>
+<div class="container justify-content-center shadow-z-1" style="padding-top: 50px;">
+<table appTables *ngIf="showAllNByDAllDate.length>0">
+    <tr>
+        <th appTableTH scope="col">Date</th>
+        <th appTableTH scope="col">Nurse's name</th>
+        <th appTableTH scope="col">Departement's name</th>
+        <th appTableTH scope="col">Mishmeret</th>
+    </tr>
+    <tr *ngFor="let n of showAllNByDAllDate index as i" appTableTR>
+        <td style=" padding: 12px;">{{n.date | date:"d/M/yyyy"}}</td>
+        <td style=" padding: 12px;">{{n.nurseId.lName |capitalizeFirstLetterPipe}} {{n.nurseId.fName |capitalizeFirstLetterPipe}}</td>
+        <td style=" padding: 12px;">{{n.departId.name |capitalizeFirstLetterPipe}}</td>
+        <td style=" padding: 12px;">{{n.mishmeret | mishmarotes:{'a':'Mornning | 07:00-15:30', 'b':'Afternoon | 15:30-24:00', 'c':'Night | 24:00-07:00'} }}</td>
+    </tr>
+</table> 
+</div>

@@ -1,0 +1,14 @@
+#title{
+    margin-left: 40%;
+    margin-right: 40%;
+}
+.icon-container {
+    width: 70px;
+    height: 70px;
+    background: none;
+  }
+.icon-container:hover{
+    cursor: url('../../../assets/icons/n.svg'), auto;
+  
+  }
+

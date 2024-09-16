@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center">
+  <div class="shadow-z-1" style="max-width: 800px;">
+    <h2 id="title" style="padding-top: 50px; color:#976950">Welcome to your personnal message area!</h2>
+    <p>Here you will be able to observe the statu of your messages send to the administrator</p>
+    <p *ngIf="!messCurentNurse" style="color: rgb(9, 88, 9);">Your message area is empty!</p>
+  </div>
+</div>
+
+<div *ngIf="messCurentNurse" class="container d-flex justify-content-center shadow-z-1" style="padding-top: 50px;">
+<table appTables style=" max-width:900px">
+    <tr>
+        <th appTableTH scope="col">Date message</th>
+        <th appTableTH scope="col">Date missing</th>
+        <th appTableTH scope="col">Departement</th>
+        <th appTableTH scope="col">Mishmerete</th>
+        <th appTableTH scope="col">Raison</th>
+        <th appTableTH scope="col">Statu</th>
+    </tr>
+    <tr *ngFor="let m of messCurentNurse.messages index as i" appTableTR>
+        <td style=" padding: 12px;">{{m.dateMessSend | date:"d/M/yyyy"}}</td>
+        <td style=" padding: 12px;">{{m.dateDestination| date:"d/M/yyyy"}}</td>
+        <td style=" padding: 12px;">{{m.depInDateDes| capitalizeFirstLetterPipe}}</td>
+        <td style=" padding: 12px;">{{m.mishmeretDateDes | mishmarotes:{'a':'Mornning | 07:00-15:30', 'b':'Afternoon | 15:30-24:00', 'c':'Night | 24:00-07:00'} }}</td>
+        <td style=" padding: 12px;">{{m.raison}}</td>
+        <td style=" padding: 12px;" *ngIf="m.isSend && !m.isGotResFromAdmin"><img class="icon-container" src="assets/icons/wait.gif"></td>
+        <td style=" padding: 12px;" *ngIf="m.isSend && m.isGotResFromAdmin && m.isAutorised"><img class="icon-container" src="assets/icons/yes.gif"></td>
+        <td style=" padding: 12px;" *ngIf="m.isSend && m.isGotResFromAdmin && !m.isAutorised"><img class="icon-container" src="assets/icons/no.gif"></td>
+    </tr>
+</table>
+</div>
+
+

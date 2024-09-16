@@ -1,0 +1,84 @@
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    .print-content, .print-content * {
+      visibility: visible;
+    }
+    .print-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  #icon-container {
+    width: 70px;
+    height: 70px;
+  }
+
+
+.rounded-pill{
+    
+  margin-top: 10%;
+  width:200px;
+  font-size: 20px;
+  
+}
+.wrapit{
+
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+
+}
+
+
+.pay-bill {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(254, 112, 112, 0.1);
+  max-width: 500px;
+  text-align: center; 
+}
+
+.pay-bill h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color:#986950;
+}
+
+.pay-bill-info {
+  margin-bottom: 15px;
+}
+
+.pay-bill-info p {
+  margin: 10px 0;
+}
+#printpay {
+  background-color: #F3DBC3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px brown;
+}
+
+button img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+#printpay:hover{
+  cursor: url('../../../assets/icons/n.svg'), auto;
+
+}

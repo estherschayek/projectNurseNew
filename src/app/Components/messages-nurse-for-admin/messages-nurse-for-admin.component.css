@@ -1,0 +1,18 @@
+
+.title{
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.icon-container {
+    width: 70px;
+    height: 70px;
+    background: none;
+  }
+
+  .gradient-text { 
+   color:#0f5506;
+}
+.icon-container:hover{
+    cursor: url('../../../assets/icons/n.svg'), auto;
+  
+  }

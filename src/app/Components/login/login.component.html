@@ -1,0 +1,47 @@
+
+<div class="container justify-content-center" style="padding-top: 70px;">
+    <div class="row">
+        <div class="col-sm-6 mb-5">
+            <div class="card">
+                <div class="bg-image hover-overlay">
+                    <img class="icon-container" src="assets/icons/loginA.gif">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Login Administrator</h3>
+                    <form appInputsStyle class="form-group" [formGroup]="formdata1" (ngSubmit)="checkValid1($event)">
+                        <div class="mb-3">
+                            <label class="form-label">User Name</label>
+                            <input appInputsStyle type="text" formControlName="userA" class="form-control input-sm"/>
+                        </div>
+                        <div *ngIf="formdata1.get('userA')?.invalid && formdata1.get('userA')?.touched" class="invalid-feedback">Please fill out this field.</div>
+                            <label class="form-label">Password</label>
+                            <input appInputsStyle type="password" formControlName="password" class="form-control input-sm"/>
+                        <div *ngIf="formdata1.get('password')?.invalid" class="invalid-feedback">Password is required.</div>
+                        <button appButtonsStyle type="submit" [disabled]="!formdata1.valid">Enter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="bg-image hover-overlay">
+                    <img class="icon-container" src="assets/icons/loginN.gif">
+                </div> 
+                <div class="card-body">
+                    <h3 class="card-title">Login Nurse</h3>
+                    <form appInputsStyle class="form-group" [formGroup]="formdata2" (ngSubmit)="checkValid2($event)">
+                        <div class="mb-3">
+                            <label class="form-label">User Name</label>
+                            <input appInputsStyle type="text" formControlName="userN" class="form-control input-sm"/>
+                        </div> 
+                        <div *ngIf="formdata2.get('userN')?.invalid && formdata2.get('userN')?.touched" class="invalid-feedback">Please fill out this field.</div>
+                            <label class="form-label">Identity Number</label>
+                            <input appInputsStyle type="text" formControlName="id" class="form-control input-sm"/>
+                        <div *ngIf="formdata2.get('id')?.invalid && formdata2.get('id')?.touched" class="invalid-feedback">Please fill out this field.</div>
+                        <button appButtonsStyle type="submit" [disabled]="!formdata2.valid">Enter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

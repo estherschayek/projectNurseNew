@@ -1,0 +1,64 @@
+<div class="container justify-content-center align-self-center" style="padding-top: 70px">
+   <div class="row">
+    <div  class="col-sm-6 mr-5">
+        <div class="card">
+           
+            <div class="card-body">
+                <h2 class="card-title" style="color:#976950">Adding a Nurse</h2>
+                  <form appInputsStyle class="form-group col-md-6 col-sm-12" [formGroup]="formdata" (ngSubmit)="checkValid1($event)">
+                     <div class="mb-3" >
+                       <label class="form-label">First Name</label>
+                       <input appInputsStyle type="text" formControlName="firstN" class="form-control input-sm" style="width: 95%;"/>
+                       <div *ngIf="formdata.get('firstN')?.invalid && formdata.get('firstN')?.touched" class="error">Please fill out this field correctly.</div>
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input appInputsStyle type="text" formControlName="lastN" class="form-control input-sm" style="width: 95%;"/>
+                        <div *ngIf="formdata.get('lastN')?.invalid && formdata.get('lastN')?.touched" class="error">Please fill out this field correctly.</div>
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Identity Number</label>
+                        <input appInputsStyle type="text" formControlName="id" class="form-control input-sm" style="width: 95%;"/>
+                        <div *ngIf="formdata.get('id')?.invalid && formdata.get('id')?.touched" class="error">A valid Id is requiered</div>
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Phone number</label>
+                        <input appInputsStyle type="text" formControlName="phoneN" class="form-control input-sm" style="width: 95%;"/>
+                        <div *ngIf="formdata.get('phoneN')?.invalid && formdata.get('phoneN')?.touched" class="error">A valid phone number is requiered</div>
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label" for="select">Status</label>
+                        <select appInputsStyle id="select" formControlName="statu" class="form-control input-sm" style="width: 95%;">
+                         <option value="" disabled>Choose a statu</option>
+                         <option >
+                           bahir
+                         </option>
+                         <option >
+                           basic
+                         </option>
+                        </select>
+                         <div *ngIf="formdata.get('statu')?.invalid && formdata.get('statu')?.touched" class="error">Please fill out this field.</div>
+                     </div>
+                     <div class="mb-3">
+                        <label class="form-label">Vetek</label>
+                        <input appInputsStyle type="number" formControlName="vetek" class="form-control input-sm"/>
+                        <div *ngIf="formdata.get('vetek')?.invalid && formdata.get('vetek')?.touched" class="error">Please fill out this field.</div>
+                     </div>
+
+            <button appButtonsStyle type="submit" [disabled]="!formdata.valid">
+         Add
+             </button>
+           </form>
+        </div>
+        </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="bg-image hover-overlay justify-content-center align-self-center">
+                    <img class="icon-container" src="assets/icons/add.gif">
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+

@@ -1,0 +1,9 @@
+.underNavBar{
+    height:100px;
+    box-shadow: 5px 5px 2px #D3B59D;
+    background: color #c2ad99; ;
+}
+.icon-container{
+    width:90px;
+    height:90px
+}

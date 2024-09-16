@@ -1,0 +1,22 @@
+
+<div class="wrapit" clas="col justify-content-center">
+    <img *ngIf="nursePerCalendarMonY.length==0" src="assets/icons/arrow.gif">
+    <button appButtonsStyle (click)="persoCalendarMonY()">My monthly calendar</button>
+</div>
+
+<div class="container justify-content-center" style="padding-top: 50px;">
+<table appTables *ngIf="nursePerCalendarMonY.length>0" style=" max-width:900px">
+    <tr>
+        <th appTableTH scope="col">Date</th>
+        <th appTableTH scope="col">Departement name</th>
+        <th appTableTH scope="col">Mishmerete</th>
+        <th appTableTH scope="col">Message To admin for that day</th>
+    </tr>
+    <tr *ngFor="let n of nursePerCalendarMonY index as i" appTableTR >
+        <td>{{n.date | date:"d/M/yyyy"}}</td>
+        <td>{{n.departId.name |capitalizeFirstLetterPipe}}</td>
+        <td>{{n.mishmeret | mishmarotes:{'a':'Morning','b':'Afternoon','c':'Night'} }}</td>
+        <td><img id="icon-container" src="assets/icons/mess.gif" (click)="sendMessToAd(actualNurse,date, n.date, n.departId.name, n.mishmeret)"></td>
+    </tr>
+</table>
+</div>

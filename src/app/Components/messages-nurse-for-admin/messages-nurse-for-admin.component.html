@@ -1,0 +1,29 @@
+<h2 class="title" style="padding-top: 50px; color:#976950">Nurses's messages</h2>
+<h3 class="title" style="padding-top: 50px; color:#186e1e"  *ngIf="messagesPerN.length==0">Their is no messages</h3>
+<div *ngIf="messagesPerN.length>0">
+<div class="container justify-content-center" style="padding-top: 50px;"*ngFor="let n of messagesPerN index as i">
+<h3 class="gradient-text">{{n.nurse.lName|capitalizeFirstLetterPipe}} {{n.nurse.fName|capitalizeFirstLetterPipe}} | Id: {{n.nurse.id}} | Phone:{{n.nurse.phoneNumber}}</h3>
+<table appTables style=" max-width:900px">
+    <tr>
+        <th appTableTH scope="col">Date message</th>
+        <th appTableTH scope="col">Date missing</th>
+        <th appTableTH scope="col">Departement</th>
+        <th appTableTH scope="col">Mishmerete</th>
+        <th appTableTH scope="col">Raison</th>
+        <th appTableTH scope="col">Give permition</th>
+    </tr>
+    <tr *ngFor="let m of n.messages index as i" appTableTR >
+        <td style=" padding: 8px;">{{m.dateMessSend | date:"d/M/yyyy"}}</td>
+        <td style=" padding: 8px;">{{m.dateDestination| date:"d/M/yyyy"}}</td>
+        <td style=" padding: 8px;">{{m.depInDateDes| capitalizeFirstLetterPipe}}</td>
+        <td style=" padding: 8px;">{{m.mishmeretDateDes | mishmarotes:{'a':'Mornning | 07:00-15:30', 'b':'Afternoon | 15:30-24:00', 'c':'Night | 24:00-07:00'} }}</td>
+        <td style=" padding: 8px;">{{m.raison}}</td>
+        <td style=" padding: 8px;"><img class="icon-container" src="assets/icons/user.gif" alt="autorised user" (click)="autorization(n.messages[i])">
+            <div style="color:green" *ngIf="n.messages[i].isSend && n.messages[i].isGotResFromAdmin && !n.messages[i].isAutorised ||n.messages[i].isAutorised " >Taken care of</div>
+            <div style="color:#d7360a" *ngIf="n.messages[i].isSend && n.messages[i].isGotResFromAdmin && !n.messages[i].isAutorised " >Inconfirmed!</div>
+            <div style="color:#976950" *ngIf="n.messages[i].isSend && n.messages[i].isGotResFromAdmin && n.messages[i].isAutorised " >Confirmed!</div>
+        </td>
+    </tr>
+</table>
+</div>
+</div>

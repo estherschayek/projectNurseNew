@@ -1,0 +1,35 @@
+.navbar{
+    margin-top: 50px;
+    padding-top: 10px;
+    background-color: #F3DBC3;
+    border-top: 2px solid #976950;
+    border-bottom: 2px solid #976950;
+    
+}
+#last{
+    color:#0f5506;
+    margin-left:10px;
+    margin-right:10px;
+    padding-right:50px;
+}
+.nav-link{
+    color:#976950;
+    font-weight: bold;
+    margin-left:10px;
+    margin-right:10px;
+}
+#scdChild{
+    color:#976950;
+    font-weight: bold;
+    background-color: rgb(149, 197, 149);
+}
+.dropdown-item {
+    color:rgb(149, 197, 149,0.5);
+    font-weight: bold;
+    background-color: #976950;
+    opacity: 0.8;
+}
+
+.icon-container{
+    width:50px;
+}

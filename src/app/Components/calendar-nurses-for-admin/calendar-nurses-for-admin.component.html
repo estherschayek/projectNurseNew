@@ -1,0 +1,19 @@
+<h1>Nurses's Calendar</h1>
+<div>
+    <div class="d-flex justify-content-around" style="padding-top: 70px;">
+        <div class="border" (click)="place()">Place the nurse montly</div>
+        <div class="border" (click)="fMYD()">View the nurses by departement and date</div>
+        <div class="border" (click)="fMY()">View nurses by date</div>
+        
+    </div>
+    <div *ngIf="disabledPlacementNurse">
+        <app-place-nurse></app-place-nurse>
+    </div>
+    <div *ngIf="disabledFilterMYD">
+        <app-filter-by-dep-mon-year></app-filter-by-dep-mon-year>
+    </div>
+    <div *ngIf="disabledFilterMY">
+        <app-filter-by-mon-year></app-filter-by-mon-year>
+    </div>
+
+</div>

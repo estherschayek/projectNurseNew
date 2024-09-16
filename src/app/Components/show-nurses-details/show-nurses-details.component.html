@@ -1,0 +1,24 @@
+<h2 id="title" style="padding-top: 50px; color:#976950">Nurses's Details</h2>
+<div class="container justify-content-center shadow-z-1" style="padding-top: 50px;">
+<table  appTables *ngIf="nurseArr.length>0" >
+    <tr>
+        <th appTableTH scope="col">Nurse's full name</th>
+        <th appTableTH scope="col">ID</th>
+        <th appTableTH scope="col">Phone Number</th>
+        <th appTableTH scope="col">Status</th>
+        <th appTableTH scope="col">Vetek</th>
+        <th appTableTH scope="col">Delete</th>
+        <th appTableTH scope="col">Edit nurse's details</th>
+        
+    </tr>
+    <tr *ngFor="let n of nurseArr index as i" appTableTR>
+        <td style=" padding: 12px;">{{n.lName | capitalizeFirstLetterPipe}} {{n.fName | capitalizeFirstLetterPipe}}</td>
+        <td style=" padding: 12px;">{{n.id}}</td>
+        <td style=" padding: 12px;">{{n.phoneNumber}}</td>
+        <td style=" padding: 12px;">{{n.statu}}</td>
+        <td style=" padding: 12px;">{{n.vetek}}</td>
+        <td style=" padding: 12px;"><img class="icon-container" src="assets/icons/delete.gif" (click)="delete(n.id)"></td>
+        <td style=" padding: 12px;"><img class="icon-container" src="assets/icons/edit.gif" (click)="update(i,n.fName,n.lName,n.phoneNumber,n.statu,n.vetek)"></td>
+    </tr>
+</table>
+</div>

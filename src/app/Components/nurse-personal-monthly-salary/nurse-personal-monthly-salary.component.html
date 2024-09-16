@@ -1,0 +1,23 @@
+
+<div class="wrapit" clas="col justify-content-center">
+  <img *ngIf="!payBill" src="assets/icons/arrow.gif">
+  <button appButtonsStyle (click)="persoSalaryMonthY()">My monthly salary</button>
+</div>
+
+<div class="container">
+  <div class="pay-bill" *ngIf="payBill" class="print-content">
+        <h2>Pay bill of {{actualNurse.lName | capitalizeFirstLetterPipe}} {{actualNurse.fName | capitalizeFirstLetterPipe}}</h2>
+        <div class="pay-bill-info">
+           <p><strong>Year:</strong> {{ payBill.year }}</p>
+           <p><strong>Month:</strong> {{ payBill.month | monthInString: { '1':'January', '2': 'February', '3': 'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'} }}</p>
+           <p><strong>Days of Works:</strong> {{ payBill.daysOfWorks }}</p>
+           <p><strong>Hours of work:</strong> {{ payBill.hoursWork}}</p>
+           <p><strong>Basic Salary:</strong> {{ payBill.basicSalary }}</p>
+           <p><strong>Vetek Salary:</strong> {{ payBill.vetekSalary }}</p>
+           <p><strong>Statu Salary:</strong> {{ payBill.statuSalary }}</p>
+           <p><strong>Total Salary:</strong> {{ payBill.totalSalary }}</p>
+        </div>
+
+       <button id="printpay" *ngIf="payBill" (click)="printContent()"><img src="assets/icons/print.svg"></button>
+  </div>
+</div>

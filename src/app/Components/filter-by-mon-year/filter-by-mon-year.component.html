@@ -1,0 +1,23 @@
+<div>
+    <div class="wrapit" clas="col justify-content-center">
+        <img *ngIf="nursePerMonY.length==0" src="assets/icons/arrow.gif">
+    <button  appButtonsStyle class="rounded-pill" (click)="filterMonY()">Filter By Month and Year</button>
+    </div>
+    <div class="container justify-content-center shadow-z-1" style="padding-top: 50px;">
+        <h3 id="title" style="padding-top: 50px;padding-bottom: 20px; color:#976950"> Shedules for {{month | monthInString: { '1':'January', '2': 'February', '3': 'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'} }} {{year}}</h3>
+        <table appTables *ngIf="nursePerMonY.length>0">
+        <tr>
+            <th appTableTH scope="col">Date</th>
+            <th appTableTH scope="col">Nurse's full name</th>
+            <th appTableTH scope="col">Departement's name</th>
+            <th appTableTH scope="col">Mishmeret</th>
+        </tr>
+        <tr *ngFor="let n of nursePerMonY index as i" appTableTR>
+            <td style="padding: 12px;">{{n.date | date:"d/M/yyyy"}}</td>
+            <td style="padding: 12px;">{{n.nurseId.lName | capitalizeFirstLetterPipe}} {{n.nurseId.fName | capitalizeFirstLetterPipe}}</td>
+            <td style="padding: 12px;">{{n.departId.name | capitalizeFirstLetterPipe}}</td>
+            <td style="padding: 12px;">{{n.mishmeret | mishmarotes:{'a':'Mornning', 'b':'Afternoon', 'c':'Night'} }}</td>
+        </tr>
+    </table>
+    </div>
+</div>

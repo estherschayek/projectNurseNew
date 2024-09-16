@@ -1,0 +1,38 @@
+<!-- <h1>Welcome! {{userActual.fName}}</h1> -->
+<!-- <div class="d-flex justify-content-around" style="padding-top: 70px;">
+    <div class="border" (click)="nursePersoCalendar()">My monthly calendar</div>
+    <div class="border" (click)="monthlySalary()">My monthly salary</div>
+    <div class="border" (click)="messStatu()">My messages's statu</div>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a id="last" class="nav-link"*ngIf="userActual">Welcome {{userActual.lName| capitalizeFirstLetterPipe}} {{userActual.fName| capitalizeFirstLetterPipe}} </a></li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="nursePersoCalendar()"> <img class="icon-container" src="assets/icons/calendA.gif">My monthly calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="monthlySalary()"> <img class="icon-container" src="assets/icons/salary.gif">My monthly salary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="messStatu()"> <img class="icon-container" src="assets/icons/showMA.gif">My messages's statu</a>
+          </li>
+        
+        </ul>
+     
+      </div>
+    </div>
+  </nav>
+
+<div *ngIf="disabledNurseCalendar">
+    <app-nurse-personal-calendar></app-nurse-personal-calendar>
+</div>
+<div *ngIf="disabledMonthlySalary">
+    <app-nurse-personal-monthly-salary></app-nurse-personal-monthly-salary>
+</div>
+<div *ngIf="disabledMessStatu">
+    <app-show-mess-statu></app-show-mess-statu>
+</div>

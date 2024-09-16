@@ -1,0 +1,23 @@
+
+<div>
+    <div class="wrapit" clas="col justify-content-center">
+        <img *ngIf="nursePerMonYDep.length==0" src="assets/icons/arrow.gif">
+    <button  appButtonsStyle class="rounded-pill" (click)="filterMonYDep()">Filter By Month Year and Departement</button>
+    </div>
+    <div class="container justify-content-center shadow-z-1" style="padding-top: 50px;">
+    <table appTables *ngIf="nursePerMonYDep.length>0">
+        <h3 id="title" style="padding-top: 50px;padding-bottom: 20px; color:#976950">Departement:{{dep | capitalizeFirstLetterPipe}} | For:{{month}}/{{year}}</h3>
+        
+        <tr>
+            <th appTableTH scope="col" style="width: 100px;">Date</th>
+            <th appTableTH scope="col">Nurse's full name</th>    
+            <th appTableTH scope="col">Mishmeret</th>
+        </tr>
+        <tr *ngFor="let n of nursePerMonYDep index as i" appTableTR>
+            <td style="padding: 12px; white-space: nowrap;">{{n.date | date:"d/M/yyyy"}}</td>
+            <td style="padding: 12px;">{{n.nurseId.lName | capitalizeFirstLetterPipe}} {{n.nurseId.fName | capitalizeFirstLetterPipe}}</td>
+            <td style="padding: 12px;">{{ n.mishmeret | mishmarotes:{'a':'Mornning', 'b':'Afternoon', 'c':'Night'} }}</td>
+        </tr>
+    </table>
+    </div>
+</div>
